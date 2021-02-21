@@ -1,10 +1,10 @@
-import { getDefaultNormalizer } from '@testing-library/react';
+ 
 import React from 'react';
 
-export function Header() {
+ function Header() {
     return (
-        <header>
-            This is the header
+        <header className = "header">
+            <h2>Corona Virus </h2>
         </header>
     );
 }
