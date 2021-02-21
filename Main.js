@@ -1,11 +1,12 @@
 import React from 'react'
-
-export function Main(){
+ 
+ function Main(){
     return(
-        <div>
-            <h4>This is the Main</h4>
+        <div className = "main">
+            <p>This is some text to tell you about what's going on here </p>
         </div>
     );
 }
-
+ 
 export default Main 
+ 
