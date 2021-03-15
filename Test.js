@@ -11,19 +11,19 @@ class Test extends Component  {
             Age: "",
             Gender: "",
             Ethnicity: "",
-            Asthma:  true,
-            CardiovascularDisease: true,
-            Chroniclungdisease: true,           
-            Immunesuppression: true,           
-            Metabolicdisease: true,           
-            Neurologicaldisease: true,           
-            Otherdisease: true,            
-            Autoimmunedisease: true,            
-            Obesity: true,            
-            Pregnancy: true,           
-            Renaldisease: true,            
-            Gastrointestinalliverdisease: true,            
-            Hypertension: true,
+            Asthma:   "",
+            CardiovascularDisease:  "",
+            Chroniclungdisease:  "",           
+            Immunesuppression:  "",           
+            Metabolicdisease:  "",           
+            Neurologicaldisease:  "",           
+            Otherdisease:  "",            
+            Autoimmunedisease:  "",            
+            Obesity:  "",            
+            Pregnancy:  "",           
+            Renaldisease:  "",            
+            Gastrointestinalliverdisease:  "",            
+            Hypertension:  "",
             ReturnedData: {}
         }
         this.handleChange = this.handleChange.bind(this)
@@ -111,10 +111,15 @@ class Test extends Component  {
                         className ="checkbox"
                         name="Asthma" 
                         value={this.state.Asthma}
-                        onChange={this.handleChange} 
- 
-                         
-                    /> 
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Asthma 
                     <br/>
 					<br/>
@@ -122,9 +127,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Cardiovascular Disease"
                         value={this.state.CardiovascularDisease}
-                        onChange={this.handleChange}                       
- 
-                    />   
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        /> 
                     Cardiovascular Disease
                     <br/>
 					<br/>					
@@ -132,8 +143,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Chronic lung disease"
                         value={this.state.Chroniclungdisease}
-                        onChange={this.handleChange}                        
-                    />  
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />  
                     Chronic lung disease
                     <br/>
 					<br/>
@@ -141,9 +159,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Immune suppression"
                         value={this.state.Immunesuppression}
-                        onChange={this.handleChange}                       
- 
-                    /> 
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Immune suppression
                     <br/>
 					<br/>
@@ -151,9 +175,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Metabolic disease"
                         value={this.state.Metabolicdisease}
-                        onChange={this.handleChange}                       
- 
-                    />    
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />  
                     Metabolic disease
                     <br/>
 					<br/>
@@ -161,9 +191,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Neurological disease"
                         value={this.state.Neurologicaldisease}
-                        onChange={this.handleChange}                         
- 
-                    />         
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />       
                     Neurological disease    
                     <br/> 
 					<br/>                                        
@@ -171,9 +207,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Other disease"
                         value={this.state.Otherdisease}
-                        onChange={this.handleChange}                        
- 
-                    />  
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Other disease
                     <br/>
 					<br/>
@@ -181,9 +223,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Autoimmune disease"
                         value={this.state.Autoimmunedisease}
-                        onChange={this.handleChange}                      
- 
-                    /> 
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Autoimmune disease
                     <br/>
 					<br/>
@@ -191,8 +239,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Obesity"
                         value={this.state.Obesity}
-                        onChange={this.handleChange} 
-                    /> 
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Obesity
                     <br/>
 					<br/>
@@ -200,9 +255,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Pregnancy"
                         value={this.state.Pregnancy}
-                        onChange={this.handleChange}                   
- 
-                    />  
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Pregnancy
                     <br/>
 					<br/>
@@ -210,9 +271,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Renal disease"
                         value={this.state.Renaldisease}
-                        onChange={this.handleChange}                        
- 
-                    /> 
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />
                     Renal disease
                     <br/>
 					<br/>
@@ -220,9 +287,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Gastrointestinal/liver disease"
                         value={this.state.Gastrointestinalliverdisease}
-                        onChange={this.handleChange}                        
- 
-                    /> 
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        /> 
                     Gastrointestinal/liver disease
                     <br/>
 					<br/>
@@ -230,8 +303,15 @@ class Test extends Component  {
                         type="checkbox"
                         name="Hypertension"                      
                         value={this.state.Hypertension}
-                        onChange={this.handleChange} 
-                    />       
+                        onChange={(e) => {
+                            this.handleChange({
+                              target: {
+                                name: e.target.name,
+                                value: e.target.checked,
+                              },
+                            });
+                          }}
+                        />       
                     Hypertension    
                     <br/> 
                     {/* <button onClick={this.submit}  >Go</button> */}
