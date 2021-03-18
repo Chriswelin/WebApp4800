@@ -8,25 +8,28 @@ class Test extends Component  {
 	constructor() {
         super()
         this.state = {
-            Age: "",
-            Gender: "",
-            Ethnicity: "",
-            Asthma:   "",
-            CardiovascularDisease:  "",
-            Chroniclungdisease:  "",           
-            Immunesuppression:  "",           
-            Metabolicdisease:  "",           
-            Neurologicaldisease:  "",           
-            Otherdisease:  "",            
-            Autoimmunedisease:  "",            
-            Obesity:  "",            
-            Pregnancy:  "",           
-            Renaldisease:  "",            
-            Gastrointestinalliverdisease:  "",            
-            Hypertension:  "",
+
+            Age: '',
+            Gender: ' ',
+            Ethnicity: '',
+            Asthma:  false,
+            CardiovascularDisease:  false,
+            Chroniclungdisease:  false,           
+            Immunesuppression:  false,           
+            Metabolicdisease:  false,           
+            Neurologicaldisease:  false,           
+            Otherdisease:  false,            
+            Autoimmunedisease:  false,            
+            Obesity:  false,            
+            Pregnancy:  false,           
+            Renaldisease:  false,            
+            Gastrointestinalliverdisease:  false,            
+            Hypertension:  false,
             ReturnedData: {}
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+ 
     }
 	
 	componentDidMount() {
@@ -41,12 +44,13 @@ class Test extends Component  {
 	handleChange(event) {
         const {name, value} = event.target
         this.setState({ [name]: value })
+        console.log(name, value)
     }
 
-    handleSubmit = (event) => {
+    async handleSubmit (event) {
         alert('A form was submitted: ' + this.state);
     
-        fetch('https://your-node-server-here.com/api/endpoint', {
+         fetch('https://your-node-server-here.com/api/endpoint', {
             method: 'POST',
             // We convert the React state to JSON and send it as the POST body
             body: JSON.stringify(this.state)
@@ -57,7 +61,7 @@ class Test extends Component  {
     
         event.preventDefault();
     }
-	
+ 
 	//const [button, setButton] = useState(true);
      render(){  
 	//const handleClick = () => setClick(!click);
@@ -66,7 +70,7 @@ class Test extends Component  {
 			<div className='item'> 
 			<h1>Please Enter your information</h1>
 			<form onSubmit={this.handleSubmit}>
-				{/* {inputButtons.map((item) => {
+				{inputButtons.map((item) => {
 				return (
 					<>
 					{item.title}
@@ -75,13 +79,17 @@ class Test extends Component  {
 					       width={item.width} 
 						   className={item.cName} 
 						   placeholder={item.place}
+               value = {item.value}
+               onChange={this.handleChange}
+               name = {item.name}
 						    />
 					<br/>
 					</>
 					);
-				})} */}
+				})}
  
-                    <input 
+
+                    {/* <input 
                         type="text"
                         name="Age"
                         placeholder="Age"
@@ -103,7 +111,7 @@ class Test extends Component  {
                         placeholder="Ethnicity"
                         value={this.state.Ethnicity}
                         onChange={this.handleChange}
-                        />
+                        /> */}
                         <br/>
 
                     <input 
@@ -111,14 +119,8 @@ class Test extends Component  {
                         className ="checkbox"
                         name="Asthma" 
                         value={this.state.Asthma}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
+                            
                         />
                     Asthma 
                     <br/>
@@ -127,14 +129,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Cardiovascular Disease"
                         value={this.state.CardiovascularDisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         /> 
                     Cardiovascular Disease
                     <br/>
@@ -143,14 +138,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Chronic lung disease"
                         value={this.state.Chroniclungdisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />  
                     Chronic lung disease
                     <br/>
@@ -159,14 +147,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Immune suppression"
                         value={this.state.Immunesuppression}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />
                     Immune suppression
                     <br/>
@@ -175,14 +156,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Metabolic disease"
                         value={this.state.Metabolicdisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />  
                     Metabolic disease
                     <br/>
@@ -191,14 +165,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Neurological disease"
                         value={this.state.Neurologicaldisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />       
                     Neurological disease    
                     <br/> 
@@ -207,14 +174,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Other disease"
                         value={this.state.Otherdisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />
                     Other disease
                     <br/>
@@ -223,14 +183,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Autoimmune disease"
                         value={this.state.Autoimmunedisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />
                     Autoimmune disease
                     <br/>
@@ -239,14 +192,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Obesity"
                         value={this.state.Obesity}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />
                     Obesity
                     <br/>
@@ -255,14 +201,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Pregnancy"
                         value={this.state.Pregnancy}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />
                     Pregnancy
                     <br/>
@@ -271,14 +210,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Renal disease"
                         value={this.state.Renaldisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         />
                     Renal disease
                     <br/>
@@ -287,14 +219,7 @@ class Test extends Component  {
                         type="checkbox"
                         name="Gastrointestinal/liver disease"
                         value={this.state.Gastrointestinalliverdisease}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
+                        onChange={this.handleChange} 
                         /> 
                     Gastrointestinal/liver disease
                     <br/>
@@ -303,15 +228,8 @@ class Test extends Component  {
                         type="checkbox"
                         name="Hypertension"                      
                         value={this.state.Hypertension}
-                        onChange={(e) => {
-                            this.handleChange({
-                              target: {
-                                name: e.target.name,
-                                value: e.target.checked,
-                              },
-                            });
-                          }}
-                        />       
+                        onChange={this.handleChange}  
+                        />
                     Hypertension    
                     <br/> 
                     {/* <button onClick={this.submit}  >Go</button> */}
